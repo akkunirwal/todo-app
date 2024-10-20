@@ -19,9 +19,9 @@ export default function AddTodoItem({ todoData, settodoData }) {
 	}
 
 	return (
-		<>
-			<input type='text' onChange={handleAddTask} value={todoItem.name ?? ""} />
-			<button onClick={addTodoItem}>Add Task</button>
-		</>
+		<div className='add-task-container'>
+			<input type='text' placeholder='Type Something' className='add-input' onChange={handleAddTask} value={todoItem.name ?? ""} />
+			<button onClick={addTodoItem} className='add-task-button'>Add Task</button>
+		</div>
 	)
 }

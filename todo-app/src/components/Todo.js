@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import TodoList from './TodoList';
 import AddTodoItem from './AddTodoItem';
 import TodoHeader from './TodoHeader';
+import './Todo.scss'
+
 
 let initialData = {
 	todoItems: [{
@@ -25,11 +27,11 @@ function Todo() {
 	}, [todoData])
 
 	return (
-		<>
-			<TodoHeader itemSearched={todoData.itemSearched} settodoData={setTodoData} />
+		<div className='app-container'>
+			<TodoHeader filterSelected={todoData.filterSelected} itemSearched={todoData.itemSearched} settodoData={setTodoData} />
 			<TodoList todoData={todoData} settodoData={setTodoData} />
 			<AddTodoItem todoData={todoData} settodoData={setTodoData} />
-		</>
+		</div>
 	)
 }
 

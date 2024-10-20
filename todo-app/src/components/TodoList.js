@@ -1,4 +1,4 @@
-import React from 'react'
+import cx from 'classnames';
 
 export default function TodoList({ todoData, settodoData }) {
 
@@ -39,10 +39,14 @@ export default function TodoList({ todoData, settodoData }) {
 		<>
 			{
 				searchedTask.map((item) => {
-					return <div key={item.id}>
-						<input type='checkbox' checked={item.done} onChange={() => changeTaskStatus(item.id)} />
-						<span>{item.name}</span>
-						<button onClick={() => deleteItem(item.id)}>delete item</button>
+					return <div key={item.id} className={cx("task-list-container", { 'back-green border-green': item.done })}>
+						<div className='d-flex'>
+							<div className={cx("custom-checkbox", { 'border-green': item.done })} onClick={() => changeTaskStatus(item.id)}>
+								{item.done && <i class="bi bi-check color-green"></i>}
+							</div>
+							<span>{item.name}</span>
+						</div>
+						<i class="bi bi-x cross-icon" onClick={() => deleteItem(item.id)}></i>
 					</div>
 				})
 			}
